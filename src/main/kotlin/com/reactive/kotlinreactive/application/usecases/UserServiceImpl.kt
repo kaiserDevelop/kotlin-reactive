@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service
 class UserServiceImpl(private val userServiceOutPort: UserServiceOutPort): UserServiceInPort {
     override fun save(user: UserDTO): Flow<User> {
        return flow{
-           println("")
+           println("Test")
            emit(userServiceOutPort.saveUser(user.toModel()))
        }
     }
