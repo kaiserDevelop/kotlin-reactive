@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changelog.sql
+      context: dev, prod
+  - include:
+      file: db/changelog/changelog-02.sql
+      context: dev, prod

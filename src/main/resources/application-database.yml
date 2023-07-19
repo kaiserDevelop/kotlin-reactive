@@ -1,0 +1,14 @@
+# Database Connection
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost/postgres
+    username: cvvadmin
+    password: bridget92
+  liquibase:
+    url: jdbc:postgresql://localhost/postgres
+    driverClassName: org.postgresql.Driver
+    user: cvvadmin
+    password: bridget92
+    changeLog: "classpath:db/changelog/main-changelog.yml"
+    contexts: prod
+    dropFirst: false
