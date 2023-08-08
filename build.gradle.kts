@@ -31,6 +31,10 @@ dependencies {
 	implementation("org.postgresql:r2dbc-postgresql")
 	implementation("org.postgresql:postgresql")
 	implementation("org.liquibase:liquibase-core")
+	// Exclude Logback from any Spring starters that include it.
+	implementation("org.springframework.boot:spring-boot-starter-actuator")
+
+
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	annotationProcessor("org.projectlombok:lombok")

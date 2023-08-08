@@ -15,6 +15,8 @@ class UserRoute(private val userHandler: UserHandler) {
             accept(MediaType.APPLICATION_JSON).nest {
                 contentType(MediaType.APPLICATION_JSON).nest {
                     POST("", userHandler::addUser)
+                    GET("", userHandler::allUsers)
+                    GET("/coroutines", userHandler::testCoroutines)
                 }
 
             }

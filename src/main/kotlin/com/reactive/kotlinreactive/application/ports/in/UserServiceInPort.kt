@@ -6,7 +6,11 @@ import kotlinx.coroutines.flow.Flow
 
 interface UserServiceInPort {
 
-    fun save(user: UserDTO): Flow<User>
+    suspend fun save(user: UserDTO): User
+
+    suspend fun allUsers(): Flow<User>
+
+    suspend fun testCoroutines(): String
 
 
 }

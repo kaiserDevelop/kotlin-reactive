@@ -13,7 +13,14 @@ class UserHandler(private val userServiceInPort: UserServiceInPort) {
     suspend fun addUser(req: ServerRequest): ServerResponse {
         val receivedUser = req.awaitBodyOrNull(UserDTO::class)
         return receivedUser?.let {
-            ok().bodyAndAwait(userServiceInPort.save(it))
+            ok().bodyValueAndAwait(userServiceInPort.save(it))
         } ?: badRequest().buildAndAwait()
+    }
+    suspend fun allUsers(req: ServerRequest): ServerResponse {
+        return ok().bodyAndAwait(userServiceInPort.allUsers())
+    }
+
+    suspend fun testCoroutines(req: ServerRequest): ServerResponse {
+        return ok().bodyValueAndAwait(userServiceInPort.testCoroutines())
     }
 }
